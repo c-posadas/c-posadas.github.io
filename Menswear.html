@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Menswear | TGS</title>
+      <link rel="stylesheet" href="style.css">
+      <script>
+         function filterProducts() {
+           var minPrice = document.getElementById("price_filter_min").value;
+           var maxPrice = document.getElementById("price_filter_max").value;
+           
+           var products = document.querySelectorAll(".price");
+           for (var i = 0; i < products.length; i++) {
+             var price = parseFloat(products[i].innerHTML.replace("$", ""));
+             if (price >= minPrice && price <= maxPrice) {
+               products[i].parentNode.parentNode.style.display = "table-cell";
+             } else {
+               products[i].parentNode.parentNode.style.display = "none";
+             }
+           }
+         }
+         </script>
+         
+   </head>
+   <body>
+      <!-- This is the main title that is centered -->
+         <h1>
+            <center>
+               TGS
+            </center>
+         </h1>
+         <font align="right" size="4">
+            <div>
+               <a href="index.html">HOME</a>
+               <a href="Search.html">SEARCH</a>
+               <a href="Login.html">LOGIN</a>
+               <a href="Shopping-bag.html">SHOPPING BAG</a>
+            </div>
+            <br>
+            <ul>
+               <li><a class="active" href="Sale.html">SALE</a></li>
+               <li><a href="New-Arrivals.html">NEW ARRIVALS</a></li>
+               <li><a href="Womenswear.html">WOMENSWEAR</a></li>
+               <li><a href="Menswear.html">MENSWEAR</a></li>
+            </ul>
+      <hr>
+
+         <h2>
+            <center>
+               MENSWEAR
+               <table width="100%" border="1" >
+               </table>
+            </center>
+         </h2>
+      </font>
+      <br><br>
+      <!-- This table is where the images are -->
+      <font color="GoldenRod">
+         <label for="price_filter">Filter by price:</label>
+         <input type="number" id="price_filter_min" placeholder="Minimum price">
+         <input type="number" id="price_filter_max" placeholder="Maximum price">
+         <button onclick="filterProducts()">Filter</button>
+      </font>
+      <div class="grow">
+      <table id="MenswearPictures" align="center" width="100%">
+         <tr>
+            <td>
+               <center>
+                  <a href="Midnight-Blue-Coat.html">
+                   <img src="pictures/1.jpg" height="640" width="480" alt="Midght Blue Coat"/></a>
+                  <h3><a href="Midnight-Blue-Coat.html">Midnight Blue Coat </a></h3>
+                  <p class="price" id="product1_price"> $75.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Safari-Drape-Pants.html> <img src="pictures/2.jpg" height="640" width="480" alt="Safari Drape Pants"/></a>
+                  <h3><a href="Safari-Drape-Pants.html">Safari Drape Pants </a></h3>
+                  <p class="price" id="product2_price"> $65.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Beige-Half-Zip-Sweater.html> <img src="pictures/3.jpg" height="640" width="480" alt="Beige Half Zip Sweater"/></a>
+                  <h3><a href= "Beige-Half-Zip-Sweater.html">Beige Half Zip Sweater </a></h3> 
+                  <p class="price" id="product3_price"> $45.00</p>
+               </center>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <center>
+                 <a href= V-neck-red-long-sleeve.html> <img src="pictures/4.jpg" height="640" width="480" alt="V-neck Red Long-Sleeve"/></a>
+                  <h3><a href="V-neck-red-long-sleeve.html">V-neck Red Long-Sleeve </a></h3>
+                  <p class="price" id="product4_price"> $45.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Silver-Blue-Fur-Coat.html> <img src="pictures/5.jpg" height=height="640" width="480" alt="Silver Blue Fur Coat"/></a>
+                  <h3><a href="Silver-Blue-Fur-Coat.html">Silver Blue Fur Coat </a></h3> 
+                  <p class="price" id="product5_price"> $45.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Beige-Fur-Coat.html> <img src="pictures/6.jpg" width="420" alt="Beige Fur Coat"/></a>
+                  <h3><a href="Beige-Fur-Coat.html">Beige Fur Coat </a></h3>
+                  <p class="price" id="product6_price"> $45.00</p>
+               </center>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <center>
+                 <a href= Baggy-Button-up.html> <img src="pictures/7.jpg" height="640" width="480" alt="Baggy Button-up"/></a>
+                  <h3><a href="Baggy-Button-up.html">Baggy Button up </a></h3>
+                  <p class="price" id="product7_price"> $80.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Emerald-Fur-Coat.html> <img src="pictures/8.jpg" height="640" width="480" alt="Emerald Fur Coat"/></a>
+                  <h3><a href="Emerald-Fur-Coat.html">Emerald Fur Coat</a></h3>
+                  <p class="price" id="product8_price"> $75.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Cactus-Jack-Long-Sleeve.html> <img src="pictures/9.jpg" height="640" width="480" alt="Cactus Jack Long-Sleeve"/></a>
+                  <h3><a href="Cactus-Jack-Long-Sleeve.html">Cactus Jack Long-Sleeve </a></h3> 
+                  <p class="price" id="product9_price"> $65.00</p>
+               </center>
+            </td>
+         </tr>
+         <tr>
+            <td id="sale">
+               <center>
+                 <a href= Heaven-Hoodie.html> <img src="pictures/10.jpg" height="640" width="480" alt="Heaven Hoodie"/></a>
+                  <h3><a href="Heaven-Hoodie.html">Heaven Hoodie </a></h3>
+                  <p class="price" id="product10_price"> 
+                     $45.00
+                     <s>
+                        $65.00
+                     </s>
+                  </p>
+                  <font color="red">
+                     <p> 20% Off</p>
+                  </font>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= Khaki-Hoodie.html> <img src="pictures/11.jpg" height="640" width="480" alt="Khaki Hoodie"/></a>
+                  <h3><a href="Khaki-Hoodie.html">Khaki Hoodie </a></h3>
+                  <p class="price" id="product11_price"> $45.00</p>
+               </center>
+            </td>
+            <td>
+               <center>
+                 <a href= New-York-Hoodie.html> <img src="pictures/12.jpg" height="640" width="480" alt="New York Hoodie"/></a>
+                  <h3><a href="New-York-Hoodie.html">New York Hoodie </a></h3>
+                  <p class="price" id="product12_price"> $50.00</p>
+               </center>
+            </td>
+         </tr>
+      </table>
+   </div>
+      <hr>
+      </font>
+      <!-- This is the Footer -->
+      <footer>
+         <a href="index.html">Home</a>
+         <a href="Login.html">Login</a>
+         <a href="Search.html">Search</a>
+         <a href="Campaign.html">Campaign</a>
+         <a href="Menswear.html">Menswear</a>
+         <a href="Womenswear.html">Womenswear</a>
+         <a href="New-Arrivals.html">New Arrivals</a>
+         <a href="Sale.html">Sale</a>
+         <a href="Aboutus.html">About Us</a>
+         <a href="Faq.html">FAQ</a>
+         <a href="Contact.html">Contact Us</a>
+         <a href="Systempreference.html">System Preferences</a>
+         <font align="center">
+         <br><p>© TGS 2023</p>
+      </footer>
+   </body>
+</html>

@@ -1,0 +1,254 @@
+<!-- This is an HTML page for login on the TGS website. -->
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <!-- Page metadata -->
+      <meta charset="UTF-8">
+      <meta name="description" content="Register for TGS">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Login | TGS</title>
+   </head>
+   <style>
+      /* Reset all margins, paddings, and box-sizing */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Noto', sans-serif;
+      }
+
+      /* Heading Styles */
+      h1, h2, h4, h5 {
+        text-align: center;
+        color: goldenrod;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2, h4 {
+        font-size: 1.5rem;
+      }
+
+      h5 {
+        font-size: 1rem;
+        text-align: right;
+      }
+
+      /* Form Styles */
+      form {
+        margin: auto;
+        max-width: 400px;
+        padding: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="tel"] {
+        width: 100%;
+        padding: 4px 12px;
+        margin: 1px 0;
+        border-radius: 1px;
+        border: none;
+        border-bottom: 1px solid goldenrod;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      /* Button Styles */
+      button[type="submit"],
+      button[type="button"],
+      .cancelbtn,
+      .registerbtn {
+        background-color: goldenrod;
+        color: white;
+        padding: 12px 18px;
+        margin: 6px 0;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        margin-right: 8px;
+      }
+
+      button[type="submit"]:hover,
+      button[type="button"]:hover,
+      .cancelbtn:hover,
+      .registerbtn:hover {
+        background-color: #e8bd01;
+      }
+
+      .cancelbtn,
+      .registerbtn {
+        background-color: goldenrod;
+        color: white;
+      }
+
+      /* Table Styles */
+      table {
+        width: 100%;
+      }
+
+      /* Footer Styles */
+      footer {
+  background-color: AntiqueWhite;
+  color: Goldenrod;
+  padding: 20px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: Black;
+}
+
+      @media (max-width: 768px) {
+         footer {
+         flex-direction: column;
+         text-align: center;
+         }
+
+         footer a {
+         margin: 10px 0;
+         }
+      }
+
+      /* Error Message Style */
+      .error {
+        color: red;
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+   </style>
+   <body>
+      <!-- Page header -->
+      <header>
+         <h1>TGS</h1>
+      </header>
+      <hr>
+
+      <!-- Main content -->
+      <main>
+         <!-- Login form with input fields and buttons -->
+         <h2>Login</h2>
+         <form onsubmit="return validateForm()" action="submit-form.php">
+            <!-- Login method selection -->
+            <label for="loginMethod">Login using:</label>
+            <input type="radio" id="emailLogin" name="loginMethod" value="email" checked>
+            <label for="emailLogin">Email</label>
+            <input type="radio" id="phoneLogin" name="loginMethod" value="phone">
+            <label for="phoneLogin">Phone Number</label>
+
+            <!-- Email input section -->
+            <div id="emailLoginSection">
+               <label for="email">Email:</label>
+               <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Phone number input section -->
+            <div id="phoneLoginSection" style="display:none;">
+               <label for="phoneNumber">Phone Number:</label>
+               <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <!-- Password input section -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <!-- Login and cancel buttons -->
+            <button type="submit">Login</button>
+            <a href="index.html" class="cancelbtn">Cancel</a>
+
+            <!-- Link to registration page and password recovery page -->
+            <h5>Don't have an account? <a href="register.html">Create an account</a></h5>
+            <h5>Forgot <a href="resetpassword.html">password?</a></h5>
+         </form>
+      </main>
+
+      <!-- Page footer -->
+      <footer>
+         <!-- Navigation links -->
+         <a href="index.html">Home</a>
+         <a href="login.html">Login</a>
+         <a href="search.html">Search</a>
+         <a href="menswear.html">Menswear</a>
+         <a href="womenswear.html">Womenswear</a>
+         <a href="new-arrivals.html">New Arrivals</a>
+         <a href="campaign.html">Campaign</a>
+         <a href="sale.html">Sale</a>
+         <a href="aboutus.html">About Us</a>
+         <a href="faq.html">FAQ</a>
+         <a href="systempreference.html">System Preferences</a>
+
+         <!-- Copyright notice -->
+         <p align="center">&copy; TGS 2023</p>
+      </footer>
+
+      <!-- JavaScript for form validation -->
+      <script>
+         // Add event listeners for radio buttons when the page loads
+         window.addEventListener("load", function() {
+         const emailLogin = document.getElementById("emailLogin");
+         const phoneLogin = document.getElementById("phoneLogin");
+         const emailLoginSection = document.getElementById("emailLoginSection");
+         const phoneLoginSection = document.getElementById("phoneLoginSection");
+
+         emailLogin.addEventListener("change", function() {
+         emailLoginSection.style.display = "block";
+         phoneLoginSection.style.display = "none";
+         document.getElementById("phoneNumber").value = ""; // Clear phone number field
+         });
+
+         phoneLogin.addEventListener("change", function() {
+         emailLoginSection.style.display = "none";
+         phoneLoginSection.style.display = "block";
+         document.getElementById("email").value = ""; // Clear email field
+         });
+         });
+
+         function validateForm() {
+         const email = document.getElementById("email").value.trim();
+         const phoneNumber = document.getElementById("phoneNumber").value.trim();
+         const password = document.getElementById("password").value.trim();
+
+         // Check if email or phone number is selected
+         const emailLogin = document.getElementById("emailLogin");
+         const phoneLogin = document.getElementById("phoneLogin");
+         if (!emailLogin.checked && !phoneLogin.checked) {
+         alert("Please select a login method");
+         return false;
+         }
+
+         // Check if email is valid if selected
+         if (emailLogin.checked && !/\S+@\S+.\S+/.test(email)) {
+         alert("Please enter a valid email address");
+         return false;
+         }
+
+         // Check if phone number is valid if selected
+         if (phoneLogin.checked && (phoneNumber === "" || !/^\(?[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/.test(phoneNumber))) {
+            alert("Please enter a valid phone number (XXX-XXX-XXXX)");
+            return false;
+         }
+
+         // Check if password is empty or not valid
+         if (password.length < 6) {
+         alert("Password must be at least 6 characters long");
+         return false;
+         }
+
+         // If all validations pass, return true to submit the form
+         return true;
+         }
+      </script>
+   </body>
+</html>
